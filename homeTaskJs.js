@@ -10,7 +10,7 @@ class Fighter {
       console.log(`У ${this.name} залишилося: ${this.health} ХП`);
     }
   }
-  hit(enemy, ...point){
+  hit(enemy, point){
     let damage = point * this.power;
     console.log(`${this.name} зробив удар, нанесено шкоди: ${damage}`);
     enemy.setDamage(damage);
@@ -30,11 +30,11 @@ let improvedFighter = new ImprovedFighter('Batman',5, 100);
 
 const fight = (fighter, improvedFighter, ...point) => {
 
-  let went = () => {
+  const went = () => {
     for (let i=0; i < point.length; i++){
       let hitPoint = point[i],
           flag = false;
-      let fighting = () => {
+      const fighting = () => {
           fighter.hit(improvedFighter, hitPoint);
           improvedFighter.doubleHit(fighter, hitPoint);
       };
@@ -44,7 +44,7 @@ const fight = (fighter, improvedFighter, ...point) => {
           if(improvedFighter.health <= 0 ){
             console.log(`${improvedFighter.name} помер
 ${fighter.name} переміг`);
-            break;
+          break;
           }
         }else{
           flag = true;
@@ -52,7 +52,7 @@ ${fighter.name} переміг`);
           if(fighter.health <= 0 ){
             console.log(`${fighter.name} помер
 ${improvedFighter.name} переміг`);
-            break;
+          break;
           }
         }
       }
@@ -61,4 +61,4 @@ ${improvedFighter.name} переміг`);
  }
 
 
-fight(fighter,improvedFighter,11,3)
+fight(fighter,improvedFighter,1,3,4)
