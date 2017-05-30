@@ -1,3 +1,5 @@
+** mongoimport --db dataSample --collection users --file D:\Mikhail\gitHomeWork\dataSample.json --jsonArray
+
 * Написать запрос для поиска всех студентов, у которых score > 87% и < 93% по любому из типов выполненных заданий.
 > db.users.find({"scores.score":{$gt:87, $lt:93}}).pretty()
 
